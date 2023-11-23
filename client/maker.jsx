@@ -2,22 +2,24 @@ const helper =require('./helper.js');
 const React =require('react');
 const ReactDOM =require('react-dom');
 
-const handleDomo =(e) => {
+const handleDomo = (e) => {
     e.preventDefault();
     helper.hideError();
-
-    const name =e.target.querySelector('#domoName').value;
-    const age =e.target.querySelector('#domoAge').value;
-    const level =e.target.querySelector('#domoLevel').value;
-
-    if(!name||!age||!level){
-        helper.handleError('All fields are required');
-        return false;
+  
+    const name = e.target.querySelector('#domoName').value;
+    const age = e.target.querySelector('#domoAge').value;
+    const level = e.target.querySelector('#domoLevel').value; // Add this line
+  
+    if (!name || !age || !level) {
+      helper.handleError('All fields are required');
+      return false;
     }
-    helper.sendPost(e.target.action,{name, age,level},loadDomosFromServer);
-
+  
+    helper.sendPost(e.target.action, { name, age, level }, loadDomosFromServer);
+  
     return false;
-}
+  };
+  
 
 const DomoForm =(props) =>{
     return(
